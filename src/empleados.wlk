@@ -31,7 +31,7 @@ object baigorria {
 	}
 	
 	method empanadasVendidas(_empanadasVendidas) {
-		empanadasVendidas = _empanadasVendidas
+		empanadasVendidas += _empanadasVendidas
 	}
 
 	method sueldo() {
@@ -46,5 +46,24 @@ object baigorria {
 		sueldoAcumulado += empanadasVendidas * precioPorEmpanada
 		self.sueldo(empanadasVendidas * precioPorEmpanada)
 		self.empanadasVendidas(0)
+	}
+}
+
+
+object gimenez {
+	
+	var fondo = 300000
+	
+	method fondo() {
+		return fondo
+	}
+	
+	method fondo(_fondo) {
+		fondo = _fondo
+	}
+	
+	method pagarSueldo(empleado) {
+		empleado.cobrarSueldo()
+		self.fondo(self.fondo() - empleado.sueldo())
 	}
 }
