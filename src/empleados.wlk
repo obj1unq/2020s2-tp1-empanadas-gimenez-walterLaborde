@@ -24,7 +24,7 @@ object baigorria {
 	const precioPorEmpanada = 15
 	var empanadasVendidas = 0
 	var sueldo = 0
-	var sueldoAcumulado = 0
+	var totalCobrado = 0
 	
 	method empanadasVendidas() {
 		return empanadasVendidas
@@ -43,9 +43,13 @@ object baigorria {
 	}
 			
 	method cobrarSueldo() {
-		sueldoAcumulado += empanadasVendidas * precioPorEmpanada
+		totalCobrado += empanadasVendidas * precioPorEmpanada
 		self.sueldo(empanadasVendidas * precioPorEmpanada)
 		self.empanadasVendidas(0)
+	}
+	
+	method totalCobrado() {
+		return totalCobrado
 	}
 }
 
