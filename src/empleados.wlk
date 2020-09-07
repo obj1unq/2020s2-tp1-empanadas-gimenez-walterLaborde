@@ -57,7 +57,6 @@ object baigorria {
 	
 	const precioPorEmpanada = 15
 	var empanadasVendidas = 0
-	var sueldo = 0
 	var totalCobrado = 0
 	
 	method vender(empanadas) {
@@ -65,16 +64,11 @@ object baigorria {
 	}
 
 	method sueldo() {
-		return sueldo
-	}
-
-	method sueldo(_sueldo) {
-		sueldo = _sueldo
+		return precioPorEmpanada * empanadasVendidas
 	}
 			
 	method cobrarSueldo() {
-		self.sueldo(empanadasVendidas * precioPorEmpanada)
-		totalCobrado += sueldo
+		totalCobrado += self.sueldo()
 		empanadasVendidas -= empanadasVendidas
 	}
 	
@@ -98,7 +92,7 @@ object gimenez {
 	}
 	
 	method pagarSueldo(empleado) {
-		empleado.cobrarSueldo()
 		self.fondo(self.fondo() - empleado.sueldo())
+		empleado.cobrarSueldo()
 	}
 }
